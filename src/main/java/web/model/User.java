@@ -21,14 +21,15 @@ public class User {
         public User() {
         }
 
-        public User(String name, String surname, String department, int salary) {
-            this.name = name;
-            this.surname = surname;
-            this.department = department;
-            this.salary = salary;
-        }
+    public User(int id, String name, String surname, String department, int salary) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.department = department;
+        this.salary = salary;
+    }
 
-        public int getId() {
+    public int getId() {
             return id;
         }
 
@@ -67,6 +68,7 @@ public class User {
         public void setSalary(int salary) {
             this.salary = salary;
         }
+
 
 
 }

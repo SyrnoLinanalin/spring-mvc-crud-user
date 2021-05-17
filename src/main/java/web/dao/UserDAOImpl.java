@@ -2,15 +2,12 @@ package web.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import web.model.User;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceContext;
+import javax.persistence.*;
 import java.util.List;
 @Repository
 public class UserDAOImpl implements UserDAO {
@@ -21,7 +18,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public List<User> getAllUser() {
 
-        List<User> allUser = entityManager.createQuery("from User", User.class)
+        List<User> allUser = entityManager.createQuery("from User")
                         .getResultList();
 
         return allUser;
@@ -45,6 +42,6 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void deleteUser(int id) {
-        entityManager.remove(getUser(id));
+       entityManager.remove(getUser(id));
     }
 }

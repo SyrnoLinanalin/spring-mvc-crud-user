@@ -22,9 +22,11 @@
         <td th:text="${user.surname}"/>
         <td th:text="${user.department}"/>
         <td th:text="${user.salary}"/>
-        <td> <a th:href="@{'/users/' + ${user.id} + '/updateInfo'}"><input type="submit" value="Edit"></a> </td>
+        <td> <a th:href="@{'/users/' + ${user.getId()} + '/updateInfo'}">
+            <input type="submit" value="Edit"></a>
+        </td>
         <td>
-            <form th:method="DELETE" th:action="@{'/users/' + ${user.id}}">
+            <form th:method="DELETE" th:action="@{'/users/' + ${user.getId()}}" >
                 <input type="submit" value="Delete">
             </form>
         </td>
