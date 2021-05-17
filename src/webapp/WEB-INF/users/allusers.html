@@ -15,15 +15,25 @@
         <th>Salary</th>
     </tr>
     <tr th:each="user : ${allUsers}">
+
+
+
         <td th:text="${user.name}"/>
         <td th:text="${user.surname}"/>
         <td th:text="${user.department}"/>
         <td th:text="${user.salary}"/>
+        <td> <a th:href="@{'/users/' + ${user.id} + '/updateInfo'}"><input type="submit" value="Edit"></a> </td>
+        <td>
+            <form th:method="DELETE" th:action="@{'/users/' + ${user.id}}">
+                <input type="submit" value="Delete">
+            </form>
+        </td>
     </tr>
 
 
 </table>
 
-
+<br><br>
+<a href="users/addNewUser" class="button"><input type="submit" value="Add"></a>
 </body>
 </html>
