@@ -26,7 +26,9 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void saveUser(User user) {
-       entityManager.persist(user);
+
+      Session session = entityManager.unwrap(Session.class);
+      session.save(user);
     }
 
     @Override
@@ -42,6 +44,8 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void deleteUser(int id) {
-       entityManager.remove(getUser(id));
+       entityManager.createQuery("delete from User where id =:userid")
+               .setParameter("userid", id)
+                .executeUpdate();
     }
 }

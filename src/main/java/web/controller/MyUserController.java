@@ -10,7 +10,7 @@ import web.service.UserService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/users")
+@RequestMapping(value = "/users")
 public class MyUserController {
 
     @Autowired
@@ -23,7 +23,7 @@ public class MyUserController {
         return "allusers";
     }
 
-    @RequestMapping(value = "/addNewUser")
+    @RequestMapping("/addNewUser")
     public String addNewUser(@ModelAttribute("user") User user){
 
         return "userinfo";
@@ -48,7 +48,7 @@ public class MyUserController {
         return "redirect:/users";
     }
 
-    @DeleteMapping("/{userId}")
+    @GetMapping(value = "/{userId}")
     public String deleteUser(@ModelAttribute("user") @PathVariable("userId") int id){
         userService.deleteUser(id);
 

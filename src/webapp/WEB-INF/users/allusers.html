@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -15,9 +15,6 @@
         <th>Salary</th>
     </tr>
     <tr th:each="user : ${allUsers}">
-
-
-
         <td th:text="${user.name}"/>
         <td th:text="${user.surname}"/>
         <td th:text="${user.department}"/>
@@ -26,7 +23,7 @@
             <input type="submit" value="Edit"></a>
         </td>
         <td>
-            <form th:method="DELETE" th:action="@{'/users/' + ${user.getId()}}" >
+            <form th:action="@{'/users/' + ${user.getId()}}" method="DELETE"   >
                 <input type="submit" value="Delete">
             </form>
         </td>
